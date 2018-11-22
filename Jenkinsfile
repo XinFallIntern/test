@@ -3,9 +3,9 @@ node(){
 	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "xl", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 			       
 			//bat "git config --global credential.helper wincred"
-		bat "git push https://${USERNAME}:${PASSWORD}@github.com/XinLian97/test.git"
 			bat returnStatus: true, script: "git branch -D db_migration"
 			bat returnStatus: true, script: "git push origin :db_migration"
+			bat "git push https://${USERNAME}:${PASSWORD}@github.com/XinLian97/test.git"
 			bat "git checkout -b db_migration"
 			bat "git push -u origin db_migration"            
 	}
