@@ -1,5 +1,6 @@
 node(){   
 	scmVars = checkout(scm)
+	bat returnStatus: true, script: "git push :db_migration"
 	bat "git diff origin/master --name-status > diff.txt"
 	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "xl", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 			//bat "git diff origin/master --name-status > diff.txt"
