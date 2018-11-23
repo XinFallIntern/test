@@ -1,7 +1,8 @@
 node(){  
 	scmVars = checkout(scm)
+	bat "git diff origin/master --name-status > diff.txt"
 	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "xl", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-			bat "git diff origin/master --name-status > diff.txt"
+			//bat "git diff origin/master --name-status > diff.txt"
 			bat "type diff.txt"
 			//bat "git config --global credential.helper wincred"
 			bat returnStatus: true, script: "git branch -D db_migration "
