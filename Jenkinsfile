@@ -1,4 +1,4 @@
-node(){  
+node(){   
 	scmVars = checkout(scm)
 	bat "git diff origin/master --name-status > diff.txt"
 	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "xl", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
